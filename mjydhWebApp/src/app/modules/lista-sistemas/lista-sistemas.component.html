@@ -1,21 +1,14 @@
-<div class="min-h-screen my-4 mx-2 sm:ml-64 border-2 bg-fondo">
-    <ul class="flex flex-wrap justify-center my-4 mx-2 text-white text-center bg-white border-2 border-gray-300">
-        <li class="bg-primary hover:text-teal-600  hover:bg-white border-2 border-gray-300 rounded-lg basis-10/12 md:basis-1/4 py-5 my-2 m-2 hover:shadow-lg">
-            <a></a>
-            <p class="font-bold">SISTEMA</p>
-        </li>
-        
-        <li class="bg-primary hover:text-teal-600  hover:bg-white border-2 border-gray-300 rounded-lg basis-10/12 md:basis-1/4 py-5 my-2 m-2 hover:shadow-md">
-            <p class="font-bold">SISTEMA</p>
-        </li>
-        <li class="bg-primary hover:text-teal-600  hover:bg-white border-2 border-gray-300 rounded-lg basis-10/12 md:basis-1/4 py-5 my-2 m-2 hover:shadow-md">
-            <p class="font-bold">SISTEMA</p>
-        </li>
-        <li class="bg-primary hover:text-teal-600  hover:bg-white border-2 border-gray-300 rounded-lg basis-10/12 md:basis-1/4 py-5 my-2 m-2 hover:shadow-md">
-            <p class="font-bold">SISTEMA</p>
-        </li>
-        <li class="bg-primary hover:text-teal-600  hover:bg-white border-2 border-gray-300 rounded-lg basis-10/12 md:basis-1/4 py-5 my-2 m-2 hover:shadow-md">
-            <p class="font-bold">SISTEMA</p>
+<div class=" min-h-screen my-4 mx-2 sm:ml-64 border-1 bg-fondo">
+    <ul class="flex flex-wrap lg:flex-row flex-col py-2 justify-center my-4 mx-2 text-white text-center bg-white border-2 border-gray-300">
+        <li *ngFor="let sistema of sistemas , let id = index" class=" h-60 border-2 border-gray-400 rounded-lg  basis-10/12 md:basis-1/4 m-2 hover:shadow-xl">
+            <div class="h-16 flex flex-col justify-center rounded-t-lg bg-cyan-600">
+                <p class="font-bold text-white mx-2">{{sistema.nombre | uppercase}}</p>
+            </div>
+            <div> 
+                <img [src]="sistema.logo" alt="">
+                <button type="submit"  class="text-teal-600" (click)="openModal(id)" > {{sistema.descripcion}}</button>
+            </div>
         </li>
     </ul>
 </div>
+<app-modal-contactos></app-modal-contactos>
