@@ -4,9 +4,9 @@
             <div class="h-16 flex flex-col justify-center items-center rounded-t-lg">
                 <p class="font-bold mt-2 text-white mx-2 ">{{sistema.nombre | titlecase}}</p>
             </div>
-            <div class="flex flex-col"> 
+            <div class="flex flex-col my-4"> 
                 <img [src]="sistema.logo" alt="">
-                <button type="submit"  class="text-teal-200 underline font-semibold decoration-teal-200 mx-1 hover:bg-gradient-to-b from-teal-800 to-teal-600" (click)="openModal(id)" > {{sistema.descripcion}}</button>
+                <button type="submit"  class="text-teal-200  underline font-semibold decoration-teal-200 mx-1 hover:bg-gradient-to-b from-teal-800 to-teal-600" (click)="openModal(id)" > {{sistema.descripcion}}</button>
             </div>
         </li>
     </ul>
