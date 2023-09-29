@@ -1,14 +1,14 @@
 <div [ngClass]="{'hidden': !modalSrv.isOpenModal()}" (click)="closeModal()"
     class="fixed z-50 inset-0 w-full p-4 overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end">
     <!-- Modal content -->
-    <div class="w-full mx-auto bg-white rounded-lg shadow">
+    <div class="w-full mx-auto bg-white rounded-lg shadow p-6 space-y-6 overflow-y-auto max-h-[400px]" >
         <!-- Modal header -->
-        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Terms of Service
+        <div class="flex items-start justify-between p-4 border-b rounded-t">
+            <h3 class="text-xl font-semibold text-gray-900">
+                Contactos
             </h3>
             <button type="button" (click)="closeModal()"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 14 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -18,53 +18,67 @@
             </button>
         </div>
         <!-- Modal body -->
-        <div class="p-6 space-y-6">
-            <!-- Tabla de contactos -->
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th  scope="col" class="px-6 py-3">
-                        
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let contacto of contactos"
-                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td *ngIf="contacto.titulo" class="px-6 py-4">
-                                Sede :{{contacto.titulo}}
-                            </td>
-                            <td *ngIf="contacto.nombre" class="px-6 py-4">
-                                {{contacto.nombre}}
-                            </td>
-                            <td *ngIf="contacto.direccion" class="px-6 py-4">
-                                {{contacto.direccion}}
-                            </td>
-                            <td *ngIf="!contacto.telefonos['numeros']" class="px-6 py-4">
-                                Números: {{contacto.telefonos}}
-                            </td>
-                            <td *ngIf="contacto.telefonos['numeros']" class="px-6 py-4">
-                                <p>  Característica:{{contacto.telefonos.caracteristica}}</p>
-                                <p *ngFor="let item of contacto.telefonos['numeros']">  Número:{{item}}<p>
-                            </td>
+        <div class="p-6 space-y-6 overflow-y-auto">
+            <!-- si el viewport es mayor a 768 width se establece esta lista -->
+            <div *ngIf="isDesktop" class="flex flex-row">
 
-                            <td *ngIf="contacto.mail" class="px-6 py-4">
-                                Mail :{{contacto.mail}}
-                            </td>
-                            <td class="px-6 py-4">
-                                <span *ngFor="let interno of contacto.internos">
-                                    <p>Interno: {{interno.nombre}}</p>
+                <ul class="mx-4">
+                    <li *ngFor="let contacto of contactos" class=" text-teal-500">
+                        <span *ngIf="contacto.titulo">
+                            <h3>{{contacto.titulo}}:  {{contacto.subtitulo}}</h3>
+                        </span>
+                    </li>
+                </ul>
+                <ul class="mx-4">
+                    <li *ngFor="let contacto of contactos">
+                        <span class="" *ngIf="contacto.direccion">
+                            <p><b>{{contacto.direccion}}</b>,  {{contacto.ubicacion}}</p>
+                        </span>
+                    </li>
+                </ul>
+
+                <!-- Telefonos -->
+                <ul class="mx-4">
+                    <li class="" *ngFor="let contacto of contactos">
+                        <p><b>Teléfono: </b>{{contacto.telefonos.numeros}}, 
+                        <b>Características: </b>{{contacto.telefonos.caracteristica}}</p>
+                    </li>
+                </ul>
+                <!-- otros -->
+                <ul class="mx-4">
+                    <li *ngFor="let contacto of contactos">
+                        <span class="" *ngIf="contacto.mail">
+                            {{contacto.mail}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <!-- si el viewpot es menos de 768 width mostrará esta lista -->
+            <div *ngIf="!isDesktop" class="md:hidden flex flex-col">
+                <ul>
+                    <span *ngFor="let contacto of contactos">
+                        <li class="my-2 text-teal-500" *ngIf="contacto.titulo">
+                            <p class="font-bold"> * {{contacto.titulo}}</p>
+                        </li>
+                        <li class="my-2" *ngFor="let contacto of contactos">
+                            <p><b>Teléfono: </b>{{contacto.telefonos.numeros}}, 
+                            <b>Características: </b>{{contacto.telefonos.caracteristica}}</p>
+                        </li>
+                        <li class="my-2">
+                            <span *ngFor="let internos of contacto.internos">
+
+                                <span class="my-1" *ngFor="let numero of internos.numeros">
+                                    <p><b>Interno:</b> {{numero}}</p>
                                 </span>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span *ngFor="let interno of contacto.internos">
-                                    <p>Interno: {{interno.nombre}}</p>
+
+                                <span class="my-1" *ngFor="let telefono of internos.telefonos">
+                                    <p><b> {{telefono}}</b></p>
                                 </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </span>
+                        </li>
+                        <hr>
+                    </span>
+                </ul>
             </div>
         </div>
     </div>
