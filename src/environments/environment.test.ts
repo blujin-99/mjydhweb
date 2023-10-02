@@ -1,4 +1,4 @@
-const baseUrl : string = 'http://localhost:8081/mjydh-web/public';
+const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
 
 export const environment = {
   mjydhWeb : baseUrl + '/api/public/'
