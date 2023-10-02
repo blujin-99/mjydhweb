@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-test": "ng build --configuration=test --base-href /mjydh-web/public/ --deploy-url /mjydh-web/public/",
+    "build-test": "ng build --configuration=test --base-href /mjydh-web/ --deploy-url /mjydh-web/",
     "build-dev": "ng build --configuration=development --base-href /mjydh-web/public/ --deploy-url /mjydh-web/public/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
