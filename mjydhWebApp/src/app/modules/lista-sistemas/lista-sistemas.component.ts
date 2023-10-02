@@ -16,6 +16,7 @@ export class ListaSistemasComponent implements OnInit{
 
    sistemas : any
 
+
    ngOnInit(): void {
 
     this.sistemaSrv.getSistemas().subscribe(data => {

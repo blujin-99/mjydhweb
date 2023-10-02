@@ -1,7 +1,7 @@
 <div [ngClass]="{'hidden': !modalSrv.isOpenModal()}" (click)="closeModal()"
     class="fixed z-50 inset-0 w-full p-4 overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end">
     <!-- Modal content -->
-    <div class="w-full mx-auto bg-white rounded-lg shadow p-6 space-y-6 overflow-y-auto max-h-[400px]" >
+    <div class="w-full mx-auto bg-white rounded-lg shadow p-6 space-y-6 overflow-y-auto max-h-[400px]">
         <!-- Modal header -->
         <div class="flex items-start justify-between p-4 border-b rounded-t">
             <h3 class="text-xl font-semibold text-gray-900">
@@ -25,14 +25,14 @@
                 <ul class="mx-4">
                     <li *ngFor="let contacto of contactos" class=" text-teal-500">
                         <span *ngIf="contacto.titulo">
-                            <h3>{{contacto.titulo}}:  {{contacto.subtitulo}}</h3>
+                            <h3>{{contacto.titulo}}: {{contacto.subtitulo}}</h3>
                         </span>
                     </li>
                 </ul>
                 <ul class="mx-4">
                     <li *ngFor="let contacto of contactos">
                         <span class="" *ngIf="contacto.direccion">
-                            <p><b>{{contacto.direccion}}</b>,  {{contacto.ubicacion}}</p>
+                            <p><b>{{contacto.direccion}}</b>, {{contacto.ubicacion}}</p>
                         </span>
                     </li>
                 </ul>
@@ -40,8 +40,9 @@
                 <!-- Telefonos -->
                 <ul class="mx-4">
                     <li class="" *ngFor="let contacto of contactos">
-                        <p><b>Teléfono: </b>{{contacto.telefonos.numeros}}, 
-                        <b>Características: </b>{{contacto.telefonos.caracteristica}}</p>
+                        <p><b>Teléfono: </b>{{contacto.telefonos.numeros}},
+                            <b>Características: </b>{{contacto.telefonos.caracteristica}}
+                        </p>
                     </li>
                 </ul>
                 <!-- otros -->
@@ -61,8 +62,9 @@
                             <p class="font-bold"> * {{contacto.titulo}}</p>
                         </li>
                         <li class="my-2" *ngFor="let contacto of contactos">
-                            <p><b>Teléfono: </b>{{contacto.telefonos.numeros}}, 
-                            <b>Características: </b>{{contacto.telefonos.caracteristica}}</p>
+                            <p><b>Teléfono: </b>{{contacto.telefonos.numeros}},
+                                <b>Características: </b>{{contacto.telefonos.caracteristica}}
+                            </p>
                         </li>
                         <li class="my-2">
                             <span *ngFor="let internos of contacto.internos">
