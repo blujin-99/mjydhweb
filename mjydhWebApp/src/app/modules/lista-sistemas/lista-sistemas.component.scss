@@ -1,7 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200&display=swap');
 .list{
-    background: #ecebeb;
+    background: #ffffff;
+    font-family: 'Outfit', sans-serif;
+}
+.title{
+    font-size: larger;
+    color:#156dbe;
 }
 
 .main-fondo{
     background-color: #ffffff;
+}
+
+.boton{
+    background: #156dbe;
+    color: #ffffff;
+    font-weight: bold;
+}
+.boton:hover{
+    background: #0a57a0;
+}
+.boton-contactos{
+    background: #15aabe;
+    color: #ffffff;
+    font-weight: bold;
+}
+.boton-contactos:hover{
+    background: #128fa0;
 }
