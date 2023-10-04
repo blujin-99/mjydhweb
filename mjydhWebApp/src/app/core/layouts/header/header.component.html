@@ -1,6 +1,6 @@
 
 <header class="bottom-4">
-   <nav class="shadow-slate-200 shadow-lg fixed z-50 w-full bg-white flex flex-row md:flex-col justify-between py-3 px-2">
+   <nav class="shadow-slate-200 shadow-lg fixed z-50 w-full bg-white flex flex-row md:flex-col md:justify-between py-3 px-2">
       <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex justify-center border-gray-300 border-4 w-14 h-12 items-center mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
          <span class="sr-only">Open sidebar</span>
          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -8,7 +8,7 @@
          </svg>
       </button>
       <div class="flex items-center"> <!-- Contenedor para los elementos alineados horizontalmente -->
-          <a routerLink="/" >
+          <a routerLink="/" *ngIf="isDesktop">
               <img
                   src="https://www.santafe.gob.ar/assets/app/portal2016/images/logo-header.png"
                   class="h-24"
