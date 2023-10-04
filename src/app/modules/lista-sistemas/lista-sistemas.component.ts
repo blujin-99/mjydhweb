@@ -28,9 +28,7 @@ export class ListaSistemasComponent implements OnInit{
 
   openModal(id: number){
     this.sistemaSrv.setIdSistema(this.sistemas[id].datos)
-    console.log(this.sistemas)
     this.ModalSrv.openModal()
-    console.log(this.ModalSrv.isOpenModal())
   }
 
 }

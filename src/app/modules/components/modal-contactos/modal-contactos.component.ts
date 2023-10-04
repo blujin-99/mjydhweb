@@ -33,7 +33,6 @@ export class ModalContactosComponent implements OnInit {
     this.sistemaSrv.data$.subscribe(contactos => {
       if (contactos) {
         this.contactos = contactos.contacto
-        console.log(this.contactos)
       }
     })
     

@@ -29,7 +29,6 @@ export class HeaderComponent {
       if(data){
         for(let datos of data){
           datos
-          console.log(datos.app.Ministerio)
            this.ministerio = datos.app.Ministerio
            this.ministerioCorto = datos.app.MinisterioCorto
         }
