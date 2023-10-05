@@ -8,6 +8,10 @@ import { ListaSistemasComponent } from './modules/lista-sistemas/lista-sistemas.
 import { FooterComponent } from './core/layouts/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ModalContactosComponent } from './modules/components/modal-contactos/modal-contactos.component'
+import { firebaseConfig } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { ModalContactosComponent } from './modules/components/modal-contactos/mo
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireMessagingModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
