@@ -5,7 +5,6 @@ export const environment = {
 }
 
 export const firebaseConfig ={
-    
     apiKey: "AIzaSyB5McZrCenegob-WOEdRGY0KwRX2128LdQ",
     authDomain: "mjydhweb.firebaseapp.com",
     projectId: "mjydhweb",
@@ -13,5 +12,4 @@ export const firebaseConfig ={
     messagingSenderId: "597266132836",
     appId: "1:597266132836:web:0850a8b80bc21565cdd471",
     measurementId: "G-XE5WQGMXG9"
-    
 }

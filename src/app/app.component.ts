@@ -1,8 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 
-import { NotificationService } from './core/service/notification.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,16 +8,9 @@ import { NotificationService } from './core/service/notification.service';
 })
 export class AppComponent {
   title = 'mjydhWebApp';
- 
-   constructor(private notificationSrv: NotificationService){
 
-   }
 
   ngOnInit(): void {
-    
-     this.notificationSrv.requestPermission()
-
-
 
     initFlowbite()
   }

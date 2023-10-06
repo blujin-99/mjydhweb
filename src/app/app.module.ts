@@ -11,6 +11,9 @@ import { ModalContactosComponent } from './modules/components/modal-contactos/mo
 import { firebaseConfig } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+import { NotificacionesComponent } from './core/layouts/notificaciones/notificaciones.component';
+import { AsyncPipe } from '@angular/common';
+import { NotificationService } from './core/service/notification.service';
 
 
 @NgModule({
@@ -19,7 +22,8 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
     HeaderComponent,
     ListaSistemasComponent,
     FooterComponent,
-    ModalContactosComponent
+    ModalContactosComponent,
+    NotificacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
     AngularFireMessagingModule,
   
   ],
-  providers: [],
+  providers: [NotificationService,AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
