@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SistemaService } from '../service/sistema.service';
-import { ModalService } from '../service/modal.service';
+import { SistemaService } from 'src/app/modules/service/sistema.service';
+import { ModalService } from 'src/app/modules/service/modal.service';
 
 @Component({
   selector: 'app-lista-sistemas',
