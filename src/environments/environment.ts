@@ -1,9 +1,9 @@
-const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
+const baseUrl : string = 'http://localhost:8081/mjydh-web/public';
 
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
 export const environment = {
-    sistemas : baseUrl + '/api/public/sistemas', 
+    sistemas : baseUrl + '/api/public/sistemas',
     oauth2: {
         serviceAuthUrl: AuthUrl + '/service-auth',
         authorizeUrl: AuthUrl + '/service-auth/oauth2.0/accessToken',
