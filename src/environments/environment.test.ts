@@ -6,13 +6,12 @@ const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
 export const environment = {
-    sistemas : baseUrl + '/api/public/sistemas', 
     redirectUri: 'http://127.0.0.1:4200',
-
+    sistemas : baseUrl + '/api/public/sistemas', 
     ... common,
     auth: {
-        clientId: 'sso.santafe.gov.ar.5868506FJCKWEDG33',
-        clientSecret: '173F5792303755A2GH',
+        clientId: 'mjydh-web.sso.santafe.gov.ar.423lkfee3',
+        clientSecret: '5E1CFCFDAA060666D7C9419D42671',
         urlaAuth: AuthUrl,
     },
     firebaseConfig :{
