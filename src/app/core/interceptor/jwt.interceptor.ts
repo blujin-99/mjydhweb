@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
 import {
+  HttpInterceptor,
   HttpRequest,
   HttpHandler,
-  HttpEvent,
-  HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
+  excludeEndpoints: string[] = environment.excludedEndpoints;
 
-  constructor() {}
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    let token: string | null = localStorage.getItem('token');
 
-  intercept(request: HttpRequest<any>, next: HttpHandler) {
-
-    let token: string | null = localStorage.getItem('jwt');
-
-    let req = request;
-
-    if(token){
-      req = request.clone({
-        setHeaders:{
-          Authorization: `Bearer ${token}`,
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
-
+    let request = req;
+    if (
+      !this.excludeEndpoints.some((endpoint) => req.url.includes(endpoint))
+    ) {
+      if (token) {
+        request = req.clone({
+          setHeaders: {
+            Authorization: `Bearer ${token}`,
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
+      }
     }
 
-    return next.handle(req);
+    return next.handle(request);
   }
 }

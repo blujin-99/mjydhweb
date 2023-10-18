@@ -4,8 +4,8 @@ import { AuthComponent } from "./auth.component";
 
 const routes: Routes = [
     {
-      path: '',
-      children: [{ path: '', component: AuthComponent }],
+      path: ':token',
+      children: [{ path: ':token', component: AuthComponent }],
     },
   ];
   
@@ -13,4 +13,7 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
   })
-  export class AuthRoutingModule {}
+  export class AuthRoutingModule 
+  {
+
+  }

@@ -1,9 +1,15 @@
-export interface IUser{
-    nombre:string,
-    apellido:string;
-    documento: string;
+export interface IUserCas {
     cuil: string;
-    matricula?: string;
+    nombre: string;
+    apellido: string;
     email: string;
     foto?: string;
-}
+  }
+  
+  export interface IUser {
+    nombre: string;
+    apellido: string;
+    numero_documento: string;
+    cuil: string;
+  }
+  

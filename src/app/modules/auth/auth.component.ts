@@ -5,14 +5,12 @@ import { IUser } from 'src/app/core/interfaces/usuario.inteface';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-   constructor(private usuarioSrv: UsuarioService){}
+  constructor(private usuarioSrv: UsuarioService) {}
 
-   ngOnInit(): void {
-      this.usuarioSrv.initAuth()
-    
-   }
-
+  ngOnInit(): void {
+    this.usuarioSrv.initAuth();
+  }
 }
