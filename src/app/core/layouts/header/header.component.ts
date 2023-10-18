@@ -48,7 +48,7 @@ export class HeaderComponent {
      */
 
     if (this.user && this.user.foto) {
-      console.log(this.user);
+      //console.log(this.user);
     }
   }
 
