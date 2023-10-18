@@ -5,7 +5,7 @@ import { AuthComponent } from './modules/auth/auth.component';
 const routes: Routes = [
 
   {
-    path:':id',
+    path:':token',
     loadChildren: () =>
     import('./modules/auth/auth.module').then((m) => m.AuthModule)
   }

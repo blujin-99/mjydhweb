@@ -9,7 +9,7 @@ import { SISTEMAS } from 'src/app/core/interfaces/sistemas.interface';
 })
 export class SistemaService {
 
-  sistemas = environment.sistemas
+  sistemas = environment.baseUrl+environment.api.sistemas
 
   contactos : any
 

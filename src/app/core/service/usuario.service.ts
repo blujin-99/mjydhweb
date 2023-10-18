@@ -1,68 +1,72 @@
 import { Injectable, signal } from '@angular/core';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { IUser } from '../interfaces/usuario.inteface';
-
+import { IUser, IUserCas } from '../interfaces/usuario.inteface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
- 
-  private user ? :  IUser;
-  private url = 'http://10.1.46.32:8181/registropropiedad/public/api/login/oauth';
+  private user?: IUser;
+  private userCas?: IUserCas;
+
+  private url = environment.baseUrl + environment.api.outh;
   public loggedIn$ = signal<boolean>(false);
 
-  constructor(private http:HttpClient, private location:Location) {}
+  constructor(private http: HttpClient, private location: Location) {}
 
-  setUser(userData: any):void{
-    this.user = {
-      nombre: userData.user.nombre,
-      apellido: userData.user.apellido,
-      documento: userData.user.numero_documento,
-      cuil: userData.user.cuil,
-      matricula: userData.user?.matricula,
-      email: userData.cas?.email,
-      foto: userData.cas?.foto,
+  setUser(userData: IUserCas): void {
+    this.userCas = {
+      nombre: userData.nombre,
+      apellido: userData.apellido,
+      cuil: userData.cuil,
+      email: userData.email,
+      foto: userData.foto,
     };
 
-    localStorage.setItem('user', JSON.stringify(this.user))
+    localStorage.setItem('userCas', JSON.stringify(this.userCas));
   }
 
-  getUser(): any{
-    const userJson = localStorage.getItem('user');
+  getUser(): any {
+    const userJSON = localStorage.getItem('userCas');
 
-    if(userJson){
-      this.user = JSON.parse(userJson);
-      console.log(this.user)
+    if (userJSON) {
+      this.user = JSON.parse(userJSON);
       return this.user;
-    }else{
-      return null
+    } else {
+      return null;
     }
   }
-
   initAuth(): void {
     if (!localStorage.getItem('user')) {
       const code: any = this.getAccessTokenFromUrl();
-      localStorage.setItem('access_token', code);
-      this.validateToken(code).subscribe((data: any) => {
-        this.setUser(data);
-        localStorage.setItem('jwt', data.jwt);
-      });
+      if (code) {
+        this.validateToken(code).subscribe((data: any) => {
+          this.setUser(data.user.userCas);
+          localStorage.setItem('token', data.token);
+        });
+      }
     }
   }
 
-    /**
+  /**
    * @returns access token
    */
-    private getAccessTokenFromUrl(): string | null {
-      const queryParams = this.location.path(true).split('#')[1];
-      const params = new URLSearchParams(queryParams);
-      return params.get('access_token');
+  private getAccessTokenFromUrl(): string | null {
+    let value = decodeURIComponent(
+      this.location.path(true).split('access_token')[1]
+    )
+      .slice(1)
+      .split('&');
+    if (value[0]) {
+      return value[0];
     }
-  
-    private validateToken(params: any) {
-      const body = JSON.stringify({ access_token: params });
-      return this.http.post(this.url, body);
-    }
+    return null;
+  }
+
+  private validateToken(params: any) {
+    const body = JSON.stringify({ access_token: params });
+    return this.http.post(this.url, body);
+  }
 }

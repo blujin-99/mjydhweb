@@ -1,6 +1,8 @@
 export const common = {
-
-
+  api:{
+    sistemas : '/api/public/sistemas', 
+    outh:'/auth',
+  },
   app: {
     ministerio: 'Ministerio de Gobierno, Justicia y Derechos Humanos',
     ministerioCorto: "MJ y DDHH",

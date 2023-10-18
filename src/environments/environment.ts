@@ -6,7 +6,7 @@ const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
 export const environment = {
-    sistemas : baseUrl + '/api/public/sistemas', 
+    baseUrl: baseUrl,
     redirectUri: 'http://127.0.0.1:4200',
 
     ... common,
@@ -24,4 +24,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
+    excludedEndpoints:[],
 }
