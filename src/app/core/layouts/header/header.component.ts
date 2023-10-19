@@ -36,7 +36,7 @@ export class HeaderComponent {
        }
     })
   }
- 
+
   ngDoCheck(): void {
     this.user = this.usuarioSrv.getUser();
 
@@ -45,9 +45,9 @@ export class HeaderComponent {
      * muestra la foto sino muestra un avatar default
      */
   }
- 
+
   perfil(){
-    window.location.replace(environment.perfil)
+    window.open(environment.perfil)
   }
 
   login() {

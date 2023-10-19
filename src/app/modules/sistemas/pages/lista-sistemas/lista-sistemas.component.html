@@ -6,11 +6,11 @@
                 <p class="font-bold  mx-2 title tracking-wide">{{sistema.nombre | titlecase}}</p>
             </div>
             <hr class="mx-4">
-            <div class="flex my-4 mx-6 descripcion"> 
-               
+            <div class="flex my-4 mx-6 descripcion">
+
             </div>
             <div class="flex flex-row justify-center bottom-0 py-4">
-                <button class=" boton-contactos bg-gray-300 w-32 px-5 py-2 mx-5 rounded-lg" (click)="irASistema(sistema.acceso)">Ir</button>
+                <a *ngIf="sistema.acceso" class=" boton-contactos bg-gray-300 w-32 px-5 py-2 mx-5 rounded-lg text-center" [href]="sistema.acceso" target="_blank" >Ir</a>
                 <button class="boton bg-gray-300 w-32 py-2 mx-5  rounded-lg" (click)="openModal(id)">Contactos</button>
             </div>
         </li>
