@@ -21,10 +21,14 @@ export class ListaSistemasComponent implements OnInit{
     
     this.sistemaSrv.getSistemas().subscribe(data => {
     this.sistemas = data
+    console.log(this.sistemas)
     })
     
   }
 
+   irASistema(url:string){
+    window.location.replace(url)
+   }
 
   openModal(id: number){
     this.sistemaSrv.setIdSistema(this.sistemas[id].datos)
