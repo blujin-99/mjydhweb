@@ -1,4 +1,5 @@
 export interface SISTEMAS{
+    acceso: string,
     nombre: string,
     logo:string,
     descripcion:string,
