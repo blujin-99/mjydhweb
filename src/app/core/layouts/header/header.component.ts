@@ -43,10 +43,6 @@ export class HeaderComponent {
      * Si el usuario esta logeado y tiene foto de perfil
      * muestra la foto sino muestra un avatar default
      */
-
-    if (this.user && this.user.foto) {
-      console.log(this.user.foto);
-    }
   }
 
   login() {
