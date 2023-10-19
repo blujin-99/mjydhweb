@@ -18,9 +18,8 @@ export class NotificationService {
     this.AFMessaging.requestToken.subscribe(
       (token) => {
         if(token){
-         
+          // console.log(token)
         }
-
       }
     )
   }

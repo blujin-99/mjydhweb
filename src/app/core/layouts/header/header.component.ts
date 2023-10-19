@@ -4,6 +4,7 @@ import { UsuarioService } from '../../service/usuario.service';
 import { IUser } from '../../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -28,17 +29,14 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    this.sistemaSrv.getSistemas().subscribe((data) => {
-      if (data) {
-        for (let datos of data) {
-          datos;
-          this.ministerio = datos.app.Ministerio;
-          this.ministerioCorto = datos.app.MinisterioCorto;
-        }
-      }
-    });
+    this.sistemaSrv.getMinisterio().subscribe((nombre) =>{
+       if(nombre){
+          this.ministerio = nombre.Ministerio
+           this.ministerioCorto = nombre.MinisterioCorto
+       }
+    })
   }
-
+ 
   ngDoCheck(): void {
     this.user = this.usuarioSrv.getUser();
 
@@ -46,10 +44,10 @@ export class HeaderComponent {
      * Si el usuario esta logeado y tiene foto de perfil
      * muestra la foto sino muestra un avatar default
      */
-
-    if (this.user && this.user.foto) {
-      //console.log(this.user);
-    }
+  }
+ 
+  perfil(){
+    window.location.replace(environment.perfil)
   }
 
   login() {
