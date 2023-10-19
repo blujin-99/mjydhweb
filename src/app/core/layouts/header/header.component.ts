@@ -4,6 +4,7 @@ import { UsuarioService } from '../../service/usuario.service';
 import { IUser } from '../../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -43,6 +44,10 @@ export class HeaderComponent {
      * Si el usuario esta logeado y tiene foto de perfil
      * muestra la foto sino muestra un avatar default
      */
+  }
+ 
+  perfil(){
+    window.location.replace(environment.perfil)
   }
 
   login() {
