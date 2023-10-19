@@ -1,14 +1,17 @@
 import { common } from "./environment.common";
 
 
-const baseUrl : string = 'http://localhost/mjydh-web/public';
+const baseUrl : string = 'http://10.1.46.32:8181/mjydh-web/public';
 
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
+
+const ministerioURL : string = 'https://tasw.santafe.gob.ar/'
 
 export const environment = {
     sistemas : baseUrl + '/api/public/sistemas', 
     baseUrl: baseUrl,
-    redirectUri: 'http://127.0.0.1:4200',
+    redirectUri: 'http://localhost:4200',
+    ministerio: ministerioURL + 'mjyddhh/mjydh-web/api',
 
     ... common,
     auth: {

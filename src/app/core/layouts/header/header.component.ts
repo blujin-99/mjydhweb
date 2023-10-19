@@ -28,17 +28,14 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    this.sistemaSrv.getSistemas().subscribe((data) => {
-      if (data) {
-        for (let datos of data) {
-          datos;
-          this.ministerio = datos.app.Ministerio;
-          this.ministerioCorto = datos.app.MinisterioCorto;
-        }
-      }
-    });
+    this.sistemaSrv.getMinisterio().subscribe((nombre) =>{
+       if(nombre){
+          this.ministerio = nombre.Ministerio
+           this.ministerioCorto = nombre.MinisterioCorto
+       }
+    })
   }
-
+ 
   ngDoCheck(): void {
     this.user = this.usuarioSrv.getUser();
 
@@ -47,9 +44,8 @@ export class HeaderComponent {
      * muestra la foto sino muestra un avatar default
      */
 
-    if (this.user && this.user.foto) {
-      //console.log(this.user);
-    }
+    // if (this.user && this.user.foto) {
+    // }
   }
 
   login() {
