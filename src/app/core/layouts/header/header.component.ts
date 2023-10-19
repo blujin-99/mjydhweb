@@ -44,8 +44,9 @@ export class HeaderComponent {
      * muestra la foto sino muestra un avatar default
      */
 
-    // if (this.user && this.user.foto) {
-    // }
+    if (this.user && this.user.foto) {
+      console.log(this.user.foto);
+    }
   }
 
   login() {
