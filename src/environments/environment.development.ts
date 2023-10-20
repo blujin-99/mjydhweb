@@ -1,6 +1,6 @@
 import { common } from "./environment.common";
 
-const idciudadanaUrl : string = 'https://www.santafe.gov.ar/idciudadana'
+const idciudadanaUrl : string = 'https://dwww.santafe.gov.ar/idciudadana'
 
 const baseUrl : string = 'http://localhost/mjydh-web/public';
 
