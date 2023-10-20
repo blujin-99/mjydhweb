@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { IUser, IUserCas } from '../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,37 +15,32 @@ export class UsuarioService {
   private url = environment.baseUrl + environment.api.outh;
   public loggedIn$ = signal<boolean>(false);
 
-  constructor(private http: HttpClient, private location: Location) {}
+  constructor(private http: HttpClient, private location: Location, ) {}
 
   setUser(userData: IUserCas): void {
-    this.userCas = {
-      nombre: userData.nombre,
-      apellido: userData.apellido,
-      cuil: userData.cuil,
-      email: userData.email,
-      foto: userData.foto,
-    };
-
-    localStorage.setItem('userCas', JSON.stringify(this.userCas));
+      localStorage.setItem('MJYDH_CAS', JSON.stringify(userData));
   }
 
   getUser(): any {
-    const userJSON = localStorage.getItem('userCas');
-
+    const userJSON = localStorage.getItem('MJYDH_CAS');
     if (userJSON) {
-      this.user = JSON.parse(userJSON);
-      return this.user;
+      return JSON.parse(userJSON);
     } else {
       return null;
     }
   }
   initAuth(): void {
-    if (!localStorage.getItem('user')) {
+    if (!localStorage.getItem('MJYDH_CAS')) {
       const code: any = this.getAccessTokenFromUrl();
       if (code) {
         this.validateToken(code).subscribe((data: any) => {
           this.setUser(data.user.userCas);
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('MJYDH_JWT', data.token);
+          /**
+           * una vez logueado direcciono al incio 
+           */
+          window.location.href = '/#/inicio';
+          //this.router.navigate(['/#/inicio'])
         });
       }
     }
