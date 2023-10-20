@@ -63,6 +63,6 @@ export class HeaderComponent {
   logout() {
     localStorage.clear();
 
-    window.location.replace('http://localhost:4200');
+    window.location.replace('http://localhost:4200/inicio');
   }
 }

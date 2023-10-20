@@ -18,7 +18,6 @@ export class ListaSistemasComponent implements OnInit{
 
 
    ngOnInit(): void {
-    
     this.sistemaSrv.getSistemas().subscribe(data => {
     this.sistemas = data
     })
@@ -26,7 +25,7 @@ export class ListaSistemasComponent implements OnInit{
   }
 
    irASistema(url:string){
-    window.location.replace(url)
+    window.open(url)
    }
 
   openModal(id: number){
