@@ -3,7 +3,7 @@ import { common } from "./environment.common";
 
 const idciudadanaUrl : string = 'https://www.santafe.gov.ar/idciudadana'
 
-const baseUrl : string = 'http://localhost:8081/mjydh-web/public/api/public';
+const baseUrl : string = 'http://localhost/mjydh-web/public/api/public';
 
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
