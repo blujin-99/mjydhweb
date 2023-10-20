@@ -18,10 +18,8 @@ export class ListaSistemasComponent implements OnInit{
 
 
    ngOnInit(): void {
-    
     this.sistemaSrv.getSistemas().subscribe(data => {
     this.sistemas = data
-    console.log(this.sistemas)
     })
     
   }
