@@ -15,6 +15,7 @@ import { NotificationService } from './core/service/notification.service';
 import { InterceptorModule } from './core/interceptor/interceptor.module';
 import { ModalContactosComponent } from './modules/sistemas/components/modal-contactos/modal-contactos.component';
 import { ListaSistemasComponent } from './modules/sistemas/pages/lista-sistemas/lista-sistemas.component';
+import { AutofocusDirective } from './core/layouts/header/components/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListaSistemasComponent } from './modules/sistemas/pages/lista-sistemas/
     FooterComponent,
     NotificacionesComponent,
     ListaSistemasComponent,
-    ModalContactosComponent
+    ModalContactosComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
