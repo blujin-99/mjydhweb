@@ -1,16 +1,16 @@
 
 <div class=" md:w-screen  mt-24 md:mt-52 md:mb-64 md:h-full main-fondo flex justify-start  flex-col md:items-center sm:ml-32 ">
-    <ul class=" bg-white rounded-lg mb-1 md:w-10/12 flex flex-wrap justify-center lg:flex-row flex-col ">
+    <ul class=" bg-white rounded-lg mb-1 md:w-10/12 md:items-center flex flex-wrap justify-center lg:flex-row flex-col ">
         <li *ngFor="let sistema of sistemas , let id = index" class="list shadow-gray-300 shadow-md border border-gray-00  m-4 md:w-5/12 md:h-82 rounded-md">
             <div class="h-16 flex flex-col justify-center items-center rounded-t-lg">
                 <p class="font-bold  mx-2 title tracking-wide">{{sistema.nombre | titlecase}}</p>
             </div>
             <hr class="mx-4">
-            <div class="flex my-4 mx-6 descripcion">
-
+            <div class="flex my-4 mx-6 descripcion"> 
+               
             </div>
             <div class="flex flex-row justify-center bottom-0 py-4">
-                <a *ngIf="sistema.acceso" class=" boton-contactos bg-gray-300 w-32 px-5 py-2 mx-5 rounded-lg text-center" [href]="sistema.acceso" target="_blank" >Ir</a>
+                <button *ngIf="sistema.acceso" class=" boton-contactos bg-gray-300 w-32 px-5 py-2 mx-5 rounded-lg" (click)="irASistema(sistema.acceso)">Ir</button>
                 <button class="boton bg-gray-300 w-32 py-2 mx-5  rounded-lg" (click)="openModal(id)">Contactos</button>
             </div>
         </li>
