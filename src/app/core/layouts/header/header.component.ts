@@ -16,6 +16,7 @@ export class HeaderComponent {
   ministerioCorto: string = '';
   isDesktop: boolean = false;
   user: any;
+  urlPerfil = environment.perfil;
 
   constructor(
     private sistemaSrv: SistemaService,
@@ -45,10 +46,6 @@ export class HeaderComponent {
      * Si el usuario esta logeado y tiene foto de perfil
      * muestra la foto sino muestra un avatar default
      */
-  }
-
-  perfil(){
-    window.open(environment.perfil)
   }
 
   login() {
