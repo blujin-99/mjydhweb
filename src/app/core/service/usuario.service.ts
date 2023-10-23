@@ -1,8 +1,9 @@
 import { Injectable, signal } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import { IUser, IUserCas } from '../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
+import { catchError } from 'rxjs';
 
 
 @Injectable({
@@ -64,5 +65,27 @@ export class UsuarioService {
   private validateToken(params: any) {
     const body = JSON.stringify({ access_token: params });
     return this.http.post(this.url, body);
+  }
+
+  public logOut(){
+
+    const url = `${environment.auth.urlaAuth}/service-auth/${environment.auth.logoutUrl}`
+    localStorage.removeItem('MJYDH_JWT')
+    localStorage.removeItem('MJYDH_CAS')
+    window.location.href =url
+    
+    /** Debería obtener una respuesta de la url logout de status 200, si es el valor eliminia los datos del
+     * localstorage, por el momentos la respuesta de la url se está examinando
+     */
+    // this.http.get(url, {observe:'response'}).subscribe(
+    //   (response: HttpResponse<any>) =>{
+    //     // if(response.status === 200){
+    //     //    localStorage.removeItem('MJYDH_JWT')
+    //     //    localStorage.removeItem('MJYDH_CAS')
+    //     //    console.log(response)
+    //     // }
+    //   },
+    // }
+    //)
   }
 }

@@ -12,6 +12,10 @@ li{
     font-family: 'Outfit', sans-serif;
 }
 
+li:hover{
+    cursor: pointer;
+}
+
 .list-styles:hover{
     background-color: #e9e9e9;
 }

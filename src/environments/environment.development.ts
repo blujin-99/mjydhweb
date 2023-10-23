@@ -16,6 +16,7 @@ export const environment = {
     perfil:idciudadanaUrl+'/perfil',
     ... common,
     auth: {
+        ...common.auth,
         clientId: 'sso.santafe.gov.ar.5868506FJCKWEDG33',
         clientSecret: '173F5792303755A2GH',
         urlaAuth: AuthUrl,
@@ -29,5 +30,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
-    excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web','https://twww.santafe.gov.ar/mjydh-web/api/public/sistemas'],
+    excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web/api', AuthUrl],
 }

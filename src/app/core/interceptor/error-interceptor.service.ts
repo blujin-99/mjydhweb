@@ -21,6 +21,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           localStorage.clear();
+          window.location.replace('http://localhost:4200')
         }
         return throwError(error);
       })

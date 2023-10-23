@@ -3,6 +3,7 @@ import { SistemaService } from 'src/app/modules/service/sistema.service';
 import { UsuarioService } from '../../service/usuario.service';
 import { IUser } from '../../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
+import { common } from 'src/environments/environment.common';
 
 
 @Component({
@@ -58,8 +59,10 @@ export class HeaderComponent {
   }
 
   logout() {
-    localStorage.clear();
+    this.usuarioSrv.logOut()
+    // localStorage.removeItem('MJYDH_JWT')
+    // localStorage.removeItem('MJYDH_CAS')
 
-    window.location.replace('http://localhost:4200/inicio');
+    // window.location.replace(environment.auth.urlaAuth + '/service-auth/' + common.auth.logoutUrl);
   }
 }
