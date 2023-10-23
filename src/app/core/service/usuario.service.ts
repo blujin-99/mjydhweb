@@ -65,4 +65,16 @@ export class UsuarioService {
     const body = JSON.stringify({ access_token: params });
     return this.http.post(this.url, body);
   }
+
+  public logOut(){
+    const url = `${environment.auth.urlaAuth}/service-auth/${environment.auth.logoutUrl}`
+    this.http.get(url).subscribe(  (response) => {
+    //  Manejar la respuesta con éxito (código de estado 200)
+    localStorage.removeItem('MJYDH_JWT')
+    localStorage.removeItem('MJYDH_CAS')
+      console.log('Solicitud exitosa', response)},
+      (error)=>{
+        console.log(error)
+      })
+  }
 }

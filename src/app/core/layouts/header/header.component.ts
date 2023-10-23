@@ -3,6 +3,7 @@ import { SistemaService } from 'src/app/modules/service/sistema.service';
 import { UsuarioService } from '../../service/usuario.service';
 import { IUser } from '../../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
+import { common } from 'src/environments/environment.common';
 
 
 @Component({
@@ -61,8 +62,6 @@ export class HeaderComponent {
   }
 
   logout() {
-    localStorage.clear();
-
-    window.location.replace('http://localhost:4200/inicio');
+    this.usuarioSrv.logOut()
   }
 }

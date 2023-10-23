@@ -11,9 +11,9 @@ export const environment = {
     baseUrl: baseUrl,
     redirectUri: 'http://localhost:4200',
     perfil:idciudadanaUrl+'/perfil',
-
     ... common,
     auth: {
+        ...common.auth,
         clientId: 'sso.santafe.gov.ar.5868506FJCKWEDG33',
         clientSecret: '173F5792303755A2GH',
         urlaAuth: AuthUrl,
@@ -27,5 +27,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
-    excludedEndpoints:[],
+    excludedEndpoints:[AuthUrl],
 }

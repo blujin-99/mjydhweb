@@ -16,6 +16,7 @@ export const environment = {
     perfil:idciudadanaUrl+'/perfil',
     ... common,
     auth: {
+        ...common.auth,
         clientId: 'sso.santafe.gov.ar.5868506FJCKWEDG33',
         clientSecret: '173F5792303755A2GH',
         urlaAuth: AuthUrl,
