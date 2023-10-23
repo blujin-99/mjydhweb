@@ -30,5 +30,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
-    excludedEndpoints:['https://twww.santafe.gov.ar/mjydh-web/api/public/sistemas'],
+    excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web/api', AuthUrl],
 }

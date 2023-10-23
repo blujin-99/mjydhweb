@@ -10,6 +10,7 @@ export const environment = {
     baseUrl: baseUrl,
     ... common,
     auth: {
+        ...common.auth,
         clientId: 'mjydh-web.sso.santafe.gov.ar.423lkfee3',
         clientSecret: '5E1CFCFDAA060666D7C9419D42671',
         urlaAuth: AuthUrl,
@@ -23,5 +24,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
-    excludedEndpoints:[],
+    excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web/api', AuthUrl],
 }
