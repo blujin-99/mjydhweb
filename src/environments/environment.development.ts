@@ -2,7 +2,7 @@ import { common } from "./environment.common";
 
 const idciudadanaUrl : string = 'https://dwww.santafe.gov.ar/idciudadana'
 
-const baseUrl : string = 'http://10.1.46.32:8181/mjydh-web/public';
+const baseUrl : string = 'http://localhost:8081/mjydh-web/public';
 
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
@@ -29,5 +29,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
-    excludedEndpoints:['https://twww.santafe.gov.ar/mjydh-web/api/public/sistemas'],
+    excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web','https://twww.santafe.gov.ar/mjydh-web/api/public/sistemas'],
 }
