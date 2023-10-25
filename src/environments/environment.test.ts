@@ -4,7 +4,7 @@ const idciudadanaUrl : string = 'https://twww.santafe.gov.ar/idciudadana'
 
 const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
 
-const AuthUrl : string = 'https://dsso.santafe.gob.ar';
+const AuthUrl : string = 'https://tsso.santafe.gov.ar';
 
 const ministerioURL : string = 'https://tasw.santafe.gob.ar/'
 
