@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SISTEMAS } from 'src/app/core/interfaces/sistemas.interface';
@@ -15,7 +15,7 @@ export class SistemaService {
   contactos : any
 
   private dataSistema = new BehaviorSubject<any>(null)
-  
+
   data$ = this.dataSistema.asObservable()
 
   constructor(private http : HttpClient) { }
@@ -27,7 +27,7 @@ export class SistemaService {
   getMinisterio(): Observable<Ministerio>{
      const ministerio = environment.ministerio
      return this.http.get<Ministerio>(ministerio)
-  } 
+  }
 
   setIdSistema(value : any){
      this.dataSistema.next(value)

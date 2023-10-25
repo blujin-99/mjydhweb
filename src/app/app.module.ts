@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/layouts/header/header.component';
 import { FooterComponent } from './core/layouts/footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { NotificacionesComponent } from './core/layouts/notificaciones/notificaciones.component';
@@ -36,7 +36,7 @@ import { ErrorLoginComponent } from './core/layouts/error-login/error-login.comp
     InterceptorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireMessagingModule,
-  
+
   ],
   providers: [NotificationService,AsyncPipe],
   bootstrap: [AppComponent]
