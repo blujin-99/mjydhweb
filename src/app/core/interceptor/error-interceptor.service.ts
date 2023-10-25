@@ -6,13 +6,17 @@ import {
   HttpEvent,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorInterceptorService implements HttpInterceptor {
+  
+  unAuthorized = new BehaviorSubject<boolean>(false)
+  $unauthorized = this.unAuthorized.asObservable()
+
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
@@ -20,8 +24,9 @@ export class ErrorInterceptorService implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          localStorage.clear();
-          window.location.replace('http://localhost:4200')
+          localStorage.removeItem('MJYDH_JWT'); 
+          localStorage.removeItem('MJYDH_CAS');
+          this.unAuthorized.next(true);
         }
         return throwError(error);
       })

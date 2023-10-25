@@ -16,6 +16,7 @@ import { InterceptorModule } from './core/interceptor/interceptor.module';
 import { ModalContactosComponent } from './modules/sistemas/components/modal-contactos/modal-contactos.component';
 import { ListaSistemasComponent } from './modules/sistemas/pages/lista-sistemas/lista-sistemas.component';
 import { AutofocusDirective } from './core/layouts/header/components/autofocus.directive';
+import { ErrorLoginComponent } from './core/layouts/error-login/error-login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AutofocusDirective } from './core/layouts/header/components/autofocus.d
     NotificacionesComponent,
     ListaSistemasComponent,
     ModalContactosComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    ErrorLoginComponent
   ],
   imports: [
     BrowserModule,

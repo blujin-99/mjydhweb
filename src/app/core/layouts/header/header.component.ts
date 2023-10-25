@@ -60,9 +60,5 @@ export class HeaderComponent {
 
   logout() {
     this.usuarioSrv.logOut()
-    // localStorage.removeItem('MJYDH_JWT')
-    // localStorage.removeItem('MJYDH_CAS')
-
-    // window.location.replace(environment.auth.urlaAuth + '/service-auth/' + common.auth.logoutUrl);
   }
 }
