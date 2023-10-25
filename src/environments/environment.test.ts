@@ -1,13 +1,19 @@
 import { common } from "./environment.common";
 
+const idciudadanaUrl : string = 'https://twww.santafe.gov.ar/idciudadana'
 
 const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
 
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
+const ministerioURL : string = 'https://tasw.santafe.gob.ar/'
+
 export const environment = {
-    redirectUri: 'http://127.0.0.1:4200',
+    sistemas : baseUrl + '/api/public/sistemas',
     baseUrl: baseUrl,
+    redirectUri: 'https://twww.santafe.gov.ar/mjydh-web',
+    ministerio: ministerioURL + 'mjyddhh/mjydh-web/api',
+    perfil:idciudadanaUrl+'/perfil',
     ... common,
     auth: {
         ...common.auth,
