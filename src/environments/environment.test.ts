@@ -2,17 +2,17 @@ import { common } from "./environment.common";
 
 const idciudadanaUrl : string = 'https://twww.santafe.gov.ar/idciudadana'
 
-const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
+const baseUrl : string = '/mjydh-web';
 
 const AuthUrl : string = 'https://tsso.santafe.gov.ar';
 
-const ministerioURL : string = 'https://tasw.santafe.gob.ar/'
+const ministerioURL : string = '/mjydh-web/api'
 
 export const environment = {
     sistemas : baseUrl + '/api/public/sistemas',
     baseUrl: baseUrl,
     redirectUri: 'https://twww.santafe.gov.ar/mjydh-web',
-    ministerio: ministerioURL + 'mjyddhh/mjydh-web/api',
+    ministerio: ministerioURL,
     perfil:idciudadanaUrl+'/perfil',
     ... common,
     auth: {
@@ -30,5 +30,5 @@ export const environment = {
         appId: "1:597266132836:web:0850a8b80bc21565cdd471",
         measurementId: "G-XE5WQGMXG9"
     },
-    excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web/api', AuthUrl],
+    excludedEndpoints:[AuthUrl],
 }

@@ -6,13 +6,13 @@ const baseUrl : string = 'http://10.1.46.32:8181/mjydh-web/public';
 
 const AuthUrl : string = 'https://dsso.santafe.gob.ar';
 
-const ministerioURL : string = 'https://tasw.santafe.gob.ar/'
+const ministerioURL : string = 'https://tasw.santafe.gob.ar/mjyddhh/mjydh-web/api'
 
 export const environment = {
     sistemas : baseUrl + '/api/public/sistemas',
     baseUrl: baseUrl,
     redirectUri: 'http://localhost:4200',
-    ministerio: ministerioURL + 'mjyddhh/mjydh-web/api',
+    ministerio: ministerioURL,
     perfil:idciudadanaUrl+'/perfil',
     ... common,
     auth: {

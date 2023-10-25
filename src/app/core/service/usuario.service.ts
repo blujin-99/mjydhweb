@@ -38,10 +38,9 @@ export class UsuarioService {
           this.setUser(data.user.userCas);
           localStorage.setItem('MJYDH_JWT', data.token);
           /**
-           * una vez logueado direcciono al incio 
+           * una vez logueado direcciono al incio
            */
-          window.location.href = '/#/inicio';
-          //this.router.navigate(['/#/inicio'])
+          window.location.href = environment.redirectUri + '/#/inicio';
         });
       }
     }
@@ -73,7 +72,7 @@ export class UsuarioService {
     localStorage.removeItem('MJYDH_JWT')
     localStorage.removeItem('MJYDH_CAS')
     window.location.href =url
-    
+
     /** Debería obtener una respuesta de la url logout de status 200, si es el valor eliminia los datos del
      * localstorage, por el momentos la respuesta de la url se está examinando
      */
