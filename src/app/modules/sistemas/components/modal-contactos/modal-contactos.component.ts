@@ -15,6 +15,8 @@ export class ModalContactosComponent implements OnInit {
 
   contactos : any
 
+  logo: string = ''
+   
   
   constructor(
       protected modalSrv : ModalService,
