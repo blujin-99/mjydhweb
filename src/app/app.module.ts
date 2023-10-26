@@ -17,6 +17,7 @@ import { ModalContactosComponent } from './modules/sistemas/components/modal-con
 import { ListaSistemasComponent } from './modules/sistemas/pages/lista-sistemas/lista-sistemas.component';
 import { AutofocusDirective } from './core/layouts/header/components/autofocus.directive';
 import { ErrorLoginComponent } from './core/layouts/error-login/error-login.component';
+import { UsuarioService } from './core/service/usuario.service';
 
 @NgModule({
   declarations: [
