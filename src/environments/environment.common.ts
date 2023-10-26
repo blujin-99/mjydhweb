@@ -1,6 +1,6 @@
 export const common = {
   api:{
-    sistemas : '/api/public/sistemas', 
+    sistemas : '/api/public/sistemas',
     outh:'/auth',
   },
   app: {
@@ -14,7 +14,6 @@ export const common = {
     authorizeUrl: 'service-auth/oauth2.0/authorize',
     accessTokenUrl: 'service-auth/oauth2.0/accessToken',
     profileUrl: 'service-auth/oauth2.0/profile',
-    redirectUri: 'login',
     logoutUrl: 'logout',
   },
   login:{
