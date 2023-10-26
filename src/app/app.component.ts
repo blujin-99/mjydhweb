@@ -9,7 +9,9 @@ import { UsuarioService } from 'src/app/core/service/usuario.service';
 })
 export class AppComponent {
   title = 'mjydhWebApp';
-  constructor(private usuarioSrv : UsuarioService){}
+  constructor(private usuarioSrv : UsuarioService){
+    this.usuarioSrv.refreshToken()
+  }
 
   ngOnInit(): void {
     this.usuarioSrv.initAuth();

@@ -20,7 +20,7 @@ export class HeaderComponent {
 
   constructor(
     private sistemaSrv: SistemaService,
-    protected usuarioSrv: UsuarioService
+    public usuarioSrv: UsuarioService
   ) {
     this.isDesktop = window.innerWidth >= 768;
   }
@@ -39,23 +39,9 @@ export class HeaderComponent {
     })
   }
 
-  ngDoCheck(): void {
-    this.user = this.usuarioSrv.getUser();
-
-    /**
-     * Si el usuario esta logeado y tiene foto de perfil
-     * muestra la foto sino muestra un avatar default
-     */
-  }
 
   login() {
-    window.location.replace(
-      environment.auth.urlaAuth +
-        '/service-auth/oauth2.0/authorize?response_type=token&client_id=' +
-        environment.auth.clientId +
-        '&redirect_uri=' +
-        environment.redirectUri
-    );
+   this.usuarioSrv.login()
   }
 
   logout() {

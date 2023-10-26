@@ -5,13 +5,16 @@ import {
   HttpHandler,
 } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { UsuarioService } from '../service/usuario.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   excludeEndpoints: string[] = environment.excludedEndpoints;
 
+  constructor(private usuarioSrv: UsuarioService){}
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    let jwt: string | null = localStorage.getItem('MJYDH_JWT');
+    let jwt: string | null = this.usuarioSrv.getJWT();
 
     let request = req;
     if (
