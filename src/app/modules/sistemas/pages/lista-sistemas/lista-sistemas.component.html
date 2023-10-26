@@ -6,8 +6,8 @@
                 <p class="font-bold  mx-2 title tracking-wide">{{sistema.nombre | titlecase}}</p>
             </div>
             <hr class="mx-4">
-            <div *ngIf="sistema.logo" class="flex my-4 descripcion justify-center items-center"> 
-                <img class="w-28 h-32 md:mr-10 ml-4" src="https://santafe.gov.ar/{{sistema.logo}}"
+            <div *ngIf="sistema.logo" class="flex my-4 descripcion justify-center items-center">
+                <img class="w-28 h-32 md:mr-10 ml-4" src="{{sistema.logo}}"
                 alt="logo" />
               <p class="md:mr-20">{{sistema.descripcion}}</p>
             </div>
