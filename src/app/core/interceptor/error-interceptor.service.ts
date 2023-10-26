@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { UsuarioService } from '../service/usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
   
   unAuthorized = new BehaviorSubject<boolean>(false)
   $unauthorized = this.unAuthorized.asObservable()
+  constructor(private usuarioSr: UsuarioService){}
 
   intercept(
     request: HttpRequest<any>,
@@ -24,9 +26,8 @@ export class ErrorInterceptorService implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          localStorage.removeItem('MJYDH_JWT'); 
-          localStorage.removeItem('MJYDH_CAS');
           this.unAuthorized.next(true);
+          this.usuarioSr.logOut()
         }
         return throwError(error);
       })
