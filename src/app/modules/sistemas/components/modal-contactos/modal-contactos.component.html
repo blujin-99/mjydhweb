@@ -1,9 +1,9 @@
 <div [ngClass]="{'hidden': !modalSrv.isOpenModal()}" (click)="closeModal()"
-    class="fixed z-50 inset-0 w-full p-4 overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end">
+    class="fixed z-50 inset-0 w-full overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end">
     <!-- Modal content -->
     <div class="w-full mx-auto bg-white rounded-lg shadow p-6 space-y-6 overflow-y-auto max-h-[400px]">
         <!-- Modal header -->
-        <div class="flex items-start justify-between p-4 border-b rounded-t">
+        <div class="flex items-start justify-between border-b rounded-t">
             <h3 class="text-xl font-semibold text-gray-500">
                 Contactos
             </h3>
@@ -20,70 +20,38 @@
         <!-- Modal body -->
         <div class="p-6 space-y-6 overflow-y-auto">
             <!-- si el viewport es mayor a 768 width se establece esta lista -->
-            <div *ngIf="isDesktop" class="flex flex-row justify-between">
-
-                <ul class="mx-4">
-                    <li *ngFor="let contacto of contactos" class="title font-semibold">
-                        <span *ngIf="contacto.titulo">
-                            <h3 class="text-sky-700">{{contacto.titulo | uppercase}}: {{contacto.subtitulo}}</h3>
-                        </span>
-                    </li>
-                </ul>
-                <ul class="mx-4 contactos">
-                    <li *ngFor="let contacto of contactos">
-                        <span class="" *ngIf="contacto.direccion">
+            <div class="flex md:flex-row flex-col justify-between">
+                <div *ngFor="let contacto of contactos" class=" m-2" >
+                    <div *ngIf="contacto.titulo">
+                        <h3 class="text-sky-700 flex title text-center font-semibold">{{contacto.titulo | uppercase}} {{contacto.subtitulo}}</h3>
+                        <hr class="border-2 bg-slate-300">
+                        <div class="my-1" *ngIf="contacto.direccion">
                             <p><b>{{contacto.direccion}}</b>, {{contacto.ubicacion}}</p>
-                        </span>
-                    </li>
-                </ul>
-
-                <!-- Telefonos -->
-                <ul class="mx-4">
-                    <li class=" telephone inline-felx contactos" *ngFor="let contacto of contactos">
-                       <p class="flex flex-row">            
-                           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
-                           {{contacto.telefonos.numeros}},
-                       </p>
-                       <p> <b>Características: </b>{{contacto.telefonos.caracteristica}}</p>   
-                    </li>
-                </ul>
-                <!-- otros -->
-                <ul class="mx-4 contactos">
-                    <li *ngFor="let contacto of contactos">
-                        <span class="" *ngIf="contacto.mail">
-                            <p class="flex flex-row contactos"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
-                                {{contacto.mail}}
-                            </p>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <!-- si el viewpot es menos de 768 width mostrará esta lista -->
-            <div *ngIf="!isDesktop" class="md:hidden flex flex-col">
-                <ul>
-                    <span *ngFor="let contacto of contactos">
-                        <li class="my-2 title font-semibold" *ngIf="contacto.titulo">
-                            <p class="font-bold"> * {{contacto.titulo | uppercase}}</p>
-                        </li>
-                        <li class="my-2 contactos telephone" *ngFor="let contacto of contactos">
-                             <p class="flex flex-row">            
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
-                                {{contacto.telefonos.numeros}},
-                            </p>
-                            <p> <b>Características: </b>{{contacto.telefonos.caracteristica}}</p>  
-                        </li>
-                        <li  class="my-2 contactos" >
-                            <span class="" *ngIf="contacto.mail">
-                                <p class="flex flex-row contactos"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
-                                    {{contacto.mail}}
+                        </div>
+                        <div *ngIf="contacto.telefonos" class="my-1">
+                            <span *ngFor="let telefonos of contacto.telefonos.numeros">
+                                <p class="flex flex-row" *ngIf="telefonos">
+                                    <svg class="telephone mr-1" xmlns="http://www.w3.org/2000/svg" height="24"
+                                        viewBox="0 -960 960 960" width="24">
+                                        <path
+                                            d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                                    </svg>
+                                    {{contacto.telefonos.caracteristica}} - {{telefonos}}
                                 </p>
                             </span>
-                        </li>
-                        <hr>
-                    </span>
-                </ul>
+                        </div>
+                        <div *ngIf="contacto.mail">
+                            <p class="flex flex-row contactos">
+                                <svg class="md:mr-1" xmlns="http://www.w3.org/2000/svg" height="24"
+                                    viewBox="0 -960 960 960" width="24">
+                                    <path
+                                        d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                                </svg>
+                                {{contacto.mail}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
