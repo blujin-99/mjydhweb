@@ -11,6 +11,10 @@
                 alt="logo" />
               <p class="md:mr-20">{{sistema.descripcion}}</p>
             </div>
+            <div *ngIf="sistema.logo && sistema.descripcion == '' || sistema.logo && !sistema.descripcion" class="flex justify-center items-center">
+                <img class="w-28 h-32 md:mr-10 ml-4" src="{{sistema.logo}}"
+                alt="logo"/>
+            </div>
             <div *ngIf="!sistema.logo" class="flex my-4 mx-2 descripcion justify-center items-center">
                 <p>{{sistema.descripcion}}</p>
             </div>
