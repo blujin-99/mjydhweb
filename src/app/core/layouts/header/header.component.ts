@@ -1,9 +1,6 @@
-import { Component, HostListener } from '@angular/core';
-import { SistemaService } from 'src/app/modules/service/sistema.service';
+import { Component, HostListener, Input } from '@angular/core';
 import { UsuarioService } from '../../service/usuario.service';
-import { IUser } from '../../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
-import { common } from 'src/environments/environment.common';
 
 
 @Component({
@@ -12,18 +9,24 @@ import { common } from 'src/environments/environment.common';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  ministerio: string = '';
-  ministerioCorto: string = '';
+
   isDesktop: boolean = false;
   user: any;
   urlPerfil = environment.perfil;
 
+  @Input({required:true}) titulo = '';
+  open = false;
+
   constructor(
-    private sistemaSrv: SistemaService,
     public usuarioSrv: UsuarioService
   ) {
     this.isDesktop = window.innerWidth >= 768;
   }
+
+  openSidenav() {
+    this.open = !this.open;
+}
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -31,12 +34,7 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    this.sistemaSrv.getMinisterio().subscribe((nombre) =>{
-       if(nombre){
-          this.ministerio = nombre.Ministerio
-           this.ministerioCorto = nombre.MinisterioCorto
-       }
-    })
+
   }
 
 

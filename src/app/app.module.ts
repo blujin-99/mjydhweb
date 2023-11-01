@@ -18,6 +18,8 @@ import { ListaSistemasComponent } from './modules/sistemas/pages/lista-sistemas/
 import { AutofocusDirective } from './core/layouts/header/components/autofocus.directive';
 import { ErrorLoginComponent } from './core/layouts/error-login/error-login.component';
 import { UsuarioService } from './core/service/usuario.service';
+import { SidebarComponent } from './core/layouts/sidebar/sidebar.component';
+import { ListSidebarComponent } from './core/components/list-sidebar/list-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UsuarioService } from './core/service/usuario.service';
     ListaSistemasComponent,
     ModalContactosComponent,
     AutofocusDirective,
-    ErrorLoginComponent
+    ErrorLoginComponent,
+    SidebarComponent,
+    ListSidebarComponent
   ],
   imports: [
     BrowserModule,
