@@ -10,35 +10,25 @@ import { SistemaService } from './modules/service/sistema.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  ministerio: string = '';
-  ministerioCorto: string = '';
+ 
   isDesktop: boolean = false;
+  ministerio: string = ''
 
   constructor(
     private usuarioSrv: UsuarioService,
     public layoutSrv: LayoutService,
-    private sistemaSrv: SistemaService
+    protected sistemaSrv: SistemaService
   ) {
     this.usuarioSrv.refreshToken()
     this.isDesktop = window.innerWidth >= 768;
   }
 
   ngOnInit(): void {
+    this.sistemaSrv.getMinisterio()
     this.usuarioSrv.initAuth();
     initFlowbite()
   }
-  
-  ngDoCheck(): void {
-    this.sistemaSrv.getMinisterio().subscribe((nombre) => {
-      if (nombre) {
-        if (this.isDesktop) {
-          this.ministerio = nombre.Ministerio
-        } else {
-          this.ministerio = nombre.MinisterioCorto
-        }
-      }
-    })
-  }
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {

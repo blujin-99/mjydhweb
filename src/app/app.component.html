@@ -1,17 +1,24 @@
 
-<app-header [titulo]="ministerio">
+<app-header>
     <app-list-sidebar></app-list-sidebar>
 </app-header>
+
 <app-sidebar>
     <app-list-sidebar></app-list-sidebar>
 </app-sidebar>
 <div
-    class="container w-full p-4 sm:w-10/12 grid-container"
+    class="container w-full py-4 my-16 md:w-10/12 grid-container"
     [ngClass]="{ expanded: layoutSrv.isExpand }">
-    <div class="p-4 sm:mt-[5rem] mt-8 space-y-5 content">
-   
+    <div class="">
+      <router-outlet></router-outlet>
     </div>
-    <div class="footer">
-        <app-footer />
-    </div>
+
 </div>
+<div
+    class="container w-full md:w-10/12 "
+    [ngClass]="{ expanded: layoutSrv.isExpand }">
+    <div class="">
+        <div class="footer">
+            <app-footer></app-footer>
+            </div>
+    </div>
