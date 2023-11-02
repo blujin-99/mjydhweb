@@ -1,18 +1,18 @@
 
-<div class=" main-fondo flex justify-start  flex-col ">
+<div class=" main-fondo w-full flex justify-start items-center flex-col ">
     <ul class=" bg-white rounded-lg mb-1 md:w-10/12 md:items-center flex flex-wrap justify-center lg:flex-row flex-col ">
         <li *ngFor="let sistema of sistemas , let id = index" class="list shadow-gray-300 shadow-md border border-gray-00  m-4 md:w-5/12 md:h-82 rounded-md">
             <div class="h-16 flex flex-col justify-center items-center rounded-t-lg">
                 <p class="font-bold  mx-2 title tracking-wide">{{sistema.nombre | titlecase}}</p>
             </div>
             <hr class="mx-4">
-            <div *ngIf="sistema.logo" class="flex my-4 descripcion justify-center items-center">
-                <img class="w-28 h-32 md:mr-10 ml-4" src="{{sistema.logo}}"
+            <div *ngIf="sistema.logo && sistema.descripcion" class="flex descripcion justify-center items-center">
+                <img class="w-28 h-32 md:mr-8 ml-7" src="https://santafe.gov.ar/{{sistema.logo}}"
                 alt="logo" />
-              <p class="md:mr-20">{{sistema.descripcion}}</p>
+              <p class="">{{sistema.descripcion}}</p>
             </div>
             <div *ngIf="sistema.logo && sistema.descripcion == '' || sistema.logo && !sistema.descripcion" class="flex justify-center items-center">
-                <img class="w-28 h-32 md:mr-10 ml-4" src="{{sistema.logo}}"
+                <img class="w-28 h-32 md:mr-10 ml-2" src="{{sistema.logo}}"
                 alt="logo"/>
             </div>
             <div *ngIf="!sistema.logo" class="flex my-4 mx-2 descripcion justify-center items-center">

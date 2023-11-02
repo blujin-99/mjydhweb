@@ -1,5 +1,5 @@
 <div [ngClass]="{'hidden': !modalSrv.isOpenModal()}" (click)="closeModal()"
-    class="fixed z-50 inset-0 w-full overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end  transition-transform -translate-y-full sm:translate-y-0">
+    class="fixed z-50 inset-0 w-full overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end">
     <!-- Modal content -->
     <div class="w-full mx-auto bg-white rounded-lg shadow p-6 space-y-6 overflow-y-auto max-h-[400px]">
         <!-- Modal header -->
@@ -21,9 +21,9 @@
         <div class="p-6 space-y-6 overflow-y-auto">
             <!-- si el viewport es mayor a 768 width se establece esta lista -->
             <div class="flex md:flex-row flex-col justify-between">
-                <div *ngFor="let contacto of contactos" class=" m-2" >
+                <div *ngFor="let contacto of contactos" class=" mx-2 my-4 " >
                     <div *ngIf="contacto.titulo">
-                        <h3 class="text-sky-700 flex title text-center font-semibold">{{contacto.titulo | uppercase}} {{contacto.subtitulo}}</h3>
+                        <h3 class="text-sky-700 flex title md:text-center font-semibold">{{contacto.titulo | uppercase}} {{contacto.subtitulo}}</h3>
                         <hr class="border-2 bg-slate-300">
                         <div class="my-1" *ngIf="contacto.direccion">
                             <p><b>{{contacto.direccion}}</b>, {{contacto.ubicacion}}</p>
