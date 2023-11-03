@@ -35,6 +35,8 @@ export class UsuarioService {
     }
     return false
   }
+
+  
   initAuth(): void {
     if (!sessionStorage.getItem(environment.login.mjydh_cas)) {
       const token: any = this.getAccessTokenFromUrl();
