@@ -1,4 +1,3 @@
-
 <app-header>
     <app-list-sidebar></app-list-sidebar>
 </app-header>
@@ -7,18 +6,14 @@
     <app-list-sidebar></app-list-sidebar>
 </app-sidebar>
 <div
-    class="container w-full py-4 my-16 md:w-10/12 grid-container"
+    class="container w-full md:p-4 py-4 md:w-10/12 grid-container"
     [ngClass]="{ expanded: layoutSrv.isExpand }">
-    <div class="">
-      <router-outlet></router-outlet>
-    </div>
+    <div class="md:content mt-[5rem]">
 
-</div>
-<div
-    class="container w-full md:w-10/12 "
-    [ngClass]="{ expanded: layoutSrv.isExpand }">
-    <div class="">
-        <div class="footer">
-            <app-footer></app-footer>
-            </div>
+        <router-outlet></router-outlet>
     </div>
+    <div class="footer">
+        <app-footer />
+    </div>
+</div>
+
