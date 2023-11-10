@@ -3,6 +3,7 @@ import { initFlowbite } from 'flowbite';
 import { UsuarioService } from 'src/app/core/service/usuario.service';
 import { LayoutService } from './core/service/layout.service';
 import { SistemaService } from './modules/service/sistema.service';
+import { NotificationService } from './core/service/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent {
   constructor(
     private usuarioSrv: UsuarioService,
     public layoutSrv: LayoutService,
-    protected sistemaSrv: SistemaService
+    protected sistemaSrv: SistemaService,
+    public notificationSrv : NotificationService
   ) {
     this.usuarioSrv.refreshToken()
     this.isDesktop = window.innerWidth >= 768;
@@ -26,6 +28,8 @@ export class AppComponent {
   ngOnInit(): void {
     this.sistemaSrv.getMinisterio()
     this.usuarioSrv.initAuth();
+    this.notificationSrv.requestPermission()
+    this.notificationSrv.reciveMessaging()
     initFlowbite()
   }
 
