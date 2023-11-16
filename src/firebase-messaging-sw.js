@@ -1,5 +1,5 @@
-importScripts('https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/10.6.0/firebase-messaging-compat.js');
 
 
 firebase.initializeApp(
@@ -15,3 +15,22 @@ firebase.initializeApp(
 )
 
 const messaging = firebase.messaging()
+
+self.addEventListener('notificationclick', event => {
+  console.log("On notification click: ", event.notification.tag);
+  event.notification.close();
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window' }).then(clientList => {
+      for (const client of clientList) {
+        if (client.url === event.notification.data.url && 'focus' in client) {
+          return client.focus();
+        }
+      }
+
+      if (clients.openWindow) {
+        return clients.openWindow(event.notification.data.url);
+      }
+    })
+  );
+});

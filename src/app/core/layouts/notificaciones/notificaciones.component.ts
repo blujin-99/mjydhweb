@@ -20,7 +20,6 @@ export class NotificacionesComponent {
   constructor(private notificacionSrv : NotificationService){}
 
   ngOnInit(): void {
-     this.notificacionSrv.requestPermission()
      this.notificacionSrv.reciveMessaging()
 
      this.notificacionSrv.mensaje.subscribe((sms) => {

@@ -9,7 +9,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
-import { NotificacionesComponent } from './core/layouts/notificaciones/notificaciones.component';
+import { NotificacionesComponent } from './core/components/notificaciones/notificaciones.component';
 import { AsyncPipe } from '@angular/common';
 import { NotificationService } from './core/service/notification.service';
 import { InterceptorModule } from './core/interceptor/interceptor.module';
@@ -20,6 +20,7 @@ import { ErrorLoginComponent } from './core/layouts/error-login/error-login.comp
 import { UsuarioService } from './core/service/usuario.service';
 import { SidebarComponent } from './core/layouts/sidebar/sidebar.component';
 import { ListSidebarComponent } from './core/components/list-sidebar/list-sidebar.component';
+import { BandejaNotificacionesComponent } from './modules/bandeja-notificaciones/pages/bandeja-notificaciones.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ListSidebarComponent } from './core/components/list-sidebar/list-sideba
     AutofocusDirective,
     ErrorLoginComponent,
     SidebarComponent,
-    ListSidebarComponent
+    ListSidebarComponent,
+    BandejaNotificacionesComponent
   ],
   imports: [
     BrowserModule,
