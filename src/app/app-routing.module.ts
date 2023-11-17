@@ -10,7 +10,7 @@ const routes: Routes = [
      path:'inicio', component:ListaSistemasComponent
   },
   {
-    canActivate:[loggedGuard],
+    canActivate: [loggedGuard],
     path: 'notificaciones',
     component:BandejaNotificacionesComponent
      
