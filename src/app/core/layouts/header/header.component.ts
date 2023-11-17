@@ -2,6 +2,7 @@ import { Component, HostListener} from '@angular/core';
 import { UsuarioService } from '../../service/usuario.service';
 import { environment } from 'src/environments/environment';
 import { SistemaService } from 'src/app/modules/service/sistema.service';
+import { NotificationService } from '../../service/notification.service';
 
 
 
@@ -20,8 +21,9 @@ export class HeaderComponent {
   open = false;
 
   constructor(
-    public usuarioSrv: UsuarioService,
-    protected sistemaSrv : SistemaService
+    public userSrv: UsuarioService,
+    protected sistemaSrv : SistemaService,
+    public notificacionSrv : NotificationService
   ) {
     this.isDesktop = window.innerWidth >= 768;
   }
@@ -47,6 +49,6 @@ export class HeaderComponent {
 
 
   logout() {
-    this.usuarioSrv.logOut()
+    this.userSrv.logOut()
   }
 }

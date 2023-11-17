@@ -1,1 +1,18 @@
-<p>bandeja-notificaciones works!</p>
+<span>
+    <h2 class="ml-6 text-2xl primary">Notificaciones</h2>
+</span>
+<div *ngIf="notificacionSrv.checkNotificacion()" class="flex flex-col items-center mt-5 ml-6 overflow-y-auto">
+    <div *ngFor="let message of notificacion$ | async, let id = index" class=" w-full">
+        <a [href]="message?.url" target="_blank" (click)="deleteNotification(id)"
+        class=" w-11/12 flex md:h-20 h-32 my-2 flex-col hover:no-underline justify-start bg-white border border-gray-200 rounded-lg shadow-md">
+        <div class=" ml-5 mt-2">
+            <h4 class="titulo">{{message?.title}}</h4>
+        </div>
+        <div class=" flex text-gray-400 ml-5 md:flex-row ">
+            <p>
+                {{message?.body}}
+            </p>
+        </div>
+    </a>
+    </div>
+</div>
