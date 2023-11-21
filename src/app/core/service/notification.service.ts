@@ -31,6 +31,7 @@ export class NotificationService {
   reciveMessaging(){
     this.AFMessaging.messages.subscribe((smRecived) =>{
       this.mensaje.next(smRecived)
+
       let notificaciones = {
         title: smRecived.notification?.title,
         body : smRecived.notification?.body,
