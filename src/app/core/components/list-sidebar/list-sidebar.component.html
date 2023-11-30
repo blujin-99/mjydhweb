@@ -1,6 +1,6 @@
-<ul class="space-y-2 font-medium md:h-full h-screen">
-    <li>
-        <a class="item-list flex flex-row" [routerLink]="['/inicio']">
+<ul class="h-screen space-y-2 font-medium md:h-full">
+    <li *ngIf="userSrv.getUser()" >
+        <a class="flex flex-row item-list" [routerLink]="['/inicio']">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                 <path
                     d="M226.666-186.666h140.001v-246.667h226.666v246.667h140.001v-380.001L480-756.667l-253.334 190v380.001ZM160-120v-480l320-240 320 240v480H526.667v-246.667h-93.334V-120H160Zm320-352Z" />
@@ -9,7 +9,7 @@
         </a>
     </li>
     <li *ngIf="!userSrv.getUser()">
-        <a class="item-list flex flex-row" (click)="login()">
+        <a class="flex flex-row item-list" (click)="login()">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
             <span class="ml-4">Iniciar Sesión</span>
         </a>
@@ -17,7 +17,7 @@
 
 
     <li class="" *ngIf="userSrv.getUser()">
-      <app-notificaciones /> 
+      <app-notificaciones />
     </li>
 </ul>
 
