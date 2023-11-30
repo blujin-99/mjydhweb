@@ -1,11 +1,15 @@
 import { Injectable, signal } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpResponse,
+} from '@angular/common/http';
 import { IUser, IUserCas } from '../interfaces/usuario.inteface';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs';
 import { PeriodicTaskService } from './periodic-task.service';
-
 
 @Injectable({
   providedIn: 'root',
@@ -18,25 +22,30 @@ export class UsuarioService {
   public loggedIn$ = signal<boolean>(false);
   private MJYDH_REFRESH: string = 'MJYDH_REFRESH';
 
-
-  constructor(private http: HttpClient, private location: Location, private periodic: PeriodicTaskService) {
+  constructor(
+    private http: HttpClient,
+    private location: Location,
+    private periodic: PeriodicTaskService
+  ) {
     sessionStorage.setItem(this.MJYDH_REFRESH, '0');
   }
 
   setUser(userData: IUserCas): void {
-    sessionStorage.setItem(environment.login.mjydh_cas, JSON.stringify(userData));
+    sessionStorage.setItem(
+      environment.login.mjydh_cas,
+      JSON.stringify(userData)
+    );
   }
 
   getUser(): any {
     const userJSON = sessionStorage.getItem(environment.login.mjydh_cas);
-    if(userJSON){
-      this.userCas = JSON.parse(userJSON)
-      return this.userCas
+    if (userJSON) {
+      this.userCas = JSON.parse(userJSON);
+      return this.userCas;
     }
-    return false
+    return false;
   }
 
-  
   initAuth(): void {
     if (!sessionStorage.getItem(environment.login.mjydh_cas)) {
       const token: any = this.getAccessTokenFromUrl();
@@ -45,7 +54,6 @@ export class UsuarioService {
         this.verifToken();
       }
     }
-
   }
 
   private setToken(token: string): void {
@@ -64,28 +72,36 @@ export class UsuarioService {
    * @param code
    */
   private verifToken(): void {
-    this.validateToken(this.getToken()).subscribe((data: any) => {
-      this.setUser(data.user.userCas);
-      sessionStorage.setItem(environment.login.mjydh_jwt, data.token);
-    },
+    this.validateToken(this.getToken()).subscribe(
+      (data: any) => {
+        this.setUser(data.user.userCas);
+        sessionStorage.setItem(environment.login.mjydh_jwt, data.token);
+      },
       (error: any) => {
         this.logOut();
-      });
+      }
+    );
   }
 
   /**
+   * Retorna el Token devuelto por el CAS
    * @returns access token
    */
   private getAccessTokenFromUrl(): string | null {
-    let value = decodeURIComponent(
-      this.location.path(true).split('access_token')[1]
-    )
-      .slice(1)
-      .split('&');
-    if (value[0]) {
-      return value[0];
+    if (this.isFromAccessToken()) {
+      const locations = this.location.path(true).split('access_token');
+      const value = decodeURIComponent(locations[1]).slice(1).split('&');
+      return value[0] ? value[0] : null;
     }
     return null;
+  }
+
+  isFromAccessToken(): boolean {
+    if (this.location.path(true).includes('access_token')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private validateToken(params: any) {
@@ -96,22 +112,20 @@ export class UsuarioService {
   public getJWT() {
     return sessionStorage.getItem(environment.login.mjydh_jwt);
   }
-  
+
   public refreshToken(): void {
     this.periodic.startPeriodicTask(environment.login.mjydh_refresh, () => {
-      (this.getToken()) ? this.verifToken() : ''
+      this.getToken() ? this.verifToken() : '';
     });
-
   }
-
 
   public login() {
     window.location.replace(
       environment.auth.urlaAuth +
-      '/service-auth/oauth2.0/authorize?response_type=token&client_id=' +
-      environment.auth.clientId +
-      '&redirect_uri=' +
-      environment.auth.redirectUri
+        '/service-auth/oauth2.0/authorize?response_type=token&client_id=' +
+        environment.auth.clientId +
+        '&redirect_uri=' +
+        environment.auth.redirectUri
     );
   }
   public logOut() {
@@ -150,5 +164,4 @@ export class UsuarioService {
     const options = { headers: headers };
     return this.http.get(this.urlLogout, options);
   }
-
 }

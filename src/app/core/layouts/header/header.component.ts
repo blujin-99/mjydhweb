@@ -37,9 +37,9 @@ export class HeaderComponent {
 
        this.ministerio = nombre.Ministerio
        this.ministerioCorto = nombre.MinisterioCorto
-     
+
    })
-  
+
  }
 
   @HostListener('window:resize', ['$event'])
@@ -50,5 +50,9 @@ export class HeaderComponent {
 
   logout() {
     this.userSrv.logOut()
+  }
+
+  login(){
+    this.userSrv.login()
   }
 }

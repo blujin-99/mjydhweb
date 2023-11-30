@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "build-prod": "ng build --configuration=prod --base-href='' --deploy-url='../mjydh-web/'",
     "build-test": "ng build --configuration=test --base-href='' --deploy-url='../mjydh-web/'"
   },
   "private": true,
