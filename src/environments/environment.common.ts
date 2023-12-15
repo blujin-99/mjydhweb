@@ -4,7 +4,7 @@ export const common = {
     outh:'/auth',
   },
   app: {
-    ministerio: 'Ministerio de Gobierno, Justicia y Derechos Humanos',
+    ministerio: 'Ministerio de Gobierno e Innovación Pública',
     ministerioCorto: "MJ y DDHH",
     secretaria: 'Sectorial de Informática',
     nombre: 'Sectorial de Informática',
