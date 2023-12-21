@@ -20,13 +20,13 @@ export const environment = {
         redirectUri: 'http://localhost:4200',
     },
     firebaseConfig :{
-        apiKey: "AIzaSyB5McZrCenegob-WOEdRGY0KwRX2128LdQ",
-        authDomain: "mjydhweb.firebaseapp.com",
-        projectId: "mjydhweb",
-        storageBucket: "mjydhweb.appspot.com",
-        messagingSenderId: "597266132836",
-        appId: "1:597266132836:web:0850a8b80bc21565cdd471",
-        measurementId: "G-XE5WQGMXG9"
+        apiKey: "AIzaSyAerSaCg4GQjhKvXOmVi9vhCbcIZ9gy4AM",
+        authDomain: "mjydh-web.firebaseapp.com",
+        projectId: "mjydh-web",
+        storageBucket: "mjydh-web.appspot.com",
+        messagingSenderId: "141275757402",
+        appId: "1:141275757402:web:083458d59f1292981d9163",
+        measurementId: "G-TF1MQP9PGC"
     },
     excludedEndpoints:['https://tasw.santafe.gob.ar/mjyddhh/mjydh-web/api', AuthUrl],
 }
