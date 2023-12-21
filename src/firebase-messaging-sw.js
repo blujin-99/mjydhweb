@@ -4,56 +4,15 @@ importScripts('https://www.gstatic.com/firebasejs/10.6.0/firebase-messaging-comp
 
 firebase.initializeApp(
     {
-        apiKey: "AIzaSyB5McZrCenegob-WOEdRGY0KwRX2128LdQ",
-        authDomain: "mjydhweb.firebaseapp.com",
-        projectId: "mjydhweb",
-        storageBucket: "mjydhweb.appspot.com",
-        messagingSenderId: "597266132836",
-        appId: "1:597266132836:web:0850a8b80bc21565cdd471",
-        measurementId: "G-XE5WQGMXG9"
+      apiKey: "AIzaSyAerSaCg4GQjhKvXOmVi9vhCbcIZ9gy4AM",
+      authDomain: "mjydh-web.firebaseapp.com",
+      projectId: "mjydh-web",
+      storageBucket: "mjydh-web.appspot.com",
+      messagingSenderId: "141275757402",
+      appId: "1:141275757402:web:083458d59f1292981d9163",
+      measurementId: "G-TF1MQP9PGC"
     }
 )
 
 const messaging = firebase.messaging()
-
-self.addEventListener('push', function(event) {
-  const payload = event.data.json(); //obtengo el json de las notificaciones por medio del evento push
-
-  //en options guardo el json a mostrar cuando la notificación estén en segundo plano
-  const options = { 
-    body: payload.notification?.body, 
-    data: {
-      url: payload.data?.['url'] 
-    },
-  };
-
-  console.log(options);
-
-  event.waitUntil(
-
-    self.registration.showNotification(payload.notification?.title , options)
-  );
-});
-
-self.addEventListener('notificationclick', function(event) {
-  event.notification.close();
-
-  const urlToOpen = event.notification.data.url;
-
-  event.waitUntil(
-    clients.matchAll({ type: 'window' }).then(clientsArr => {
-      // Si hay una ventana abierta, enfócala
-      for (const client of clientsArr) {
-        if ('focus' in client) {
-          return client.focus();
-        }
-      }
-
-      // Si no hay ventana abierta, abre una nueva ventana con la URL especificada
-      if (clients.openWindow) {
-        return clients.openWindow(urlToOpen);
-      }
-    })
-  );
-});
 
