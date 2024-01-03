@@ -15,10 +15,10 @@
                   </path>
                </svg>
             </button>
-            <div *ngIf="notificacionSrv.checkNotificacion() > 0 && !isDesktop && userSrv.getUser()"
+            <div *ngIf="notificacionSrv.checkNotification() > 0 && !isDesktop && userSrv.getUser()"
                class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-semibold text-white bg-red-700 rounded-full top-6 left-10"
              >
-              {{notificacionSrv.checkNotificacion()}}
+              {{notificacionSrv.checkNotification()}}
              </div>
             <a *ngIf="isDesktop" routerLink="/" class="flex md:mr-[5rem] ocultar-sm">
                <img src="https://www.santafe.gob.ar/assets/app/portal2016/images/logo-header.png"

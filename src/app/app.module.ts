@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/layouts/header/header.component';
 import { FooterComponent } from './core/layouts/footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+
 import { NotificacionesComponent } from './core/components/notificaciones/notificaciones.component';
 import { AsyncPipe } from '@angular/common';
 import { NotificationService } from './core/service/notification.service';
@@ -21,7 +19,7 @@ import { UsuarioService } from './core/service/usuario.service';
 import { SidebarComponent } from './core/layouts/sidebar/sidebar.component';
 import { ListSidebarComponent } from './core/components/list-sidebar/list-sidebar.component';
 import { BandejaNotificacionesComponent } from './modules/bandeja-notificaciones/pages/bandeja-notificaciones.component';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +39,13 @@ import { BandejaNotificacionesComponent } from './modules/bandeja-notificaciones
     HttpClientModule,
     AppRoutingModule,
     InterceptorModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireMessagingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+
 
   ],
   providers: [NotificationService,AsyncPipe],

@@ -6,8 +6,8 @@ import { BandejaNotificacionesComponent } from './modules/bandeja-notificaciones
 
 const routes: Routes = [
 
-   { // canActivate: [loggedGuard],
-     path:'inicio', component:ListaSistemasComponent
+  {
+     path: 'inicio', component: ListaSistemasComponent 
   },
   {
     canActivate: [loggedGuard],
@@ -15,15 +15,9 @@ const routes: Routes = [
     component:BandejaNotificacionesComponent
      
    },
-  {
-    path: '',
-    redirectTo: 'inicio',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: 'inicio',
-  },
+   { 
+    path: '', redirectTo: '/inicio', pathMatch: 'full'
+   },
  
 ];
 
