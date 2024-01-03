@@ -3,6 +3,7 @@ import { initFlowbite } from 'flowbite';
 import { UsuarioService } from 'src/app/core/service/usuario.service';
 import { LayoutService } from './core/service/layout.service';
 import { SistemaService } from './modules/service/sistema.service';
+import { initializeApp } from 'firebase/app';
 import { NotificationService } from './core/service/notification.service';
 
 @Component({

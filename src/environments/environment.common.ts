@@ -1,7 +1,9 @@
 export const common = {
+  pk:"mjydhweb",
   api:{
     sistemas : '/api/public/sistemas',
     outh:'/auth',
+    notificationUrl : 'notify/register'
   },
   app: {
     ministerio: 'Ministerio de Gobierno e Innovación Pública',
@@ -21,5 +23,8 @@ export const common = {
     mjydh_jwt: 'MJYDH_JWT',
     mjydh_token:'MJYDH_TOKEN',
     mjydh_refresh:600000,
+  },
+  notificacion: {
+    nombre: "notificacion"
   }
 };

@@ -15,4 +15,5 @@ firebase.initializeApp(
 )
 
 const messaging = firebase.messaging()
+messaging.onBackgroundMessage();
 

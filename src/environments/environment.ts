@@ -7,6 +7,7 @@ const baseUrl : string = 'https://twww.santafe.gov.ar/mjydh-web';
 const AuthUrl : string = 'https://tsso.santafe.gov.ar';
 
 export const environment = {
+    env: 'prod',
     sistemas : baseUrl + '/api/public/sistemas',
     baseUrl: baseUrl,
     ministerio: baseUrl + '/api',
