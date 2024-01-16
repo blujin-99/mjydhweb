@@ -17,15 +17,10 @@ export class ListaSistemasComponent implements OnInit{
 
    sistemas : any
    
-   logo : SISTEMAS | null = null
 
    ngOnInit(): void {
     this.sistemaSrv.getSistemas().subscribe(data => {
     this.sistemas = data
-    for(let logo of this.sistemas){
-    this.logo = logo.logo
-    }
-
     })
     
   }
@@ -36,7 +31,6 @@ export class ListaSistemasComponent implements OnInit{
 
   openModal(id: number){
     this.sistemaSrv.setIdSistema(this.sistemas[id].datos)
-    console.log(this.sistemas)
     this.ModalSrv.openModal()
   }
 
