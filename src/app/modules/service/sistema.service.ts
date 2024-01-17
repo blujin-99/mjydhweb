@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { SISTEMAS } from 'src/app/core/interfaces/sistemas.interface';
-import { Ministerio } from 'src/app/core/interfaces/ministerio.interface';
+import { ISistemas} from 'src/app/core/interfaces/sistemas.interface';
+import { IMinisterio } from 'src/app/core/interfaces/ministerio.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +20,13 @@ export class SistemaService {
 
   constructor(private http : HttpClient) { }
 
-  getSistemas(): Observable<SISTEMAS[]>{
-    return this.http.get<SISTEMAS[]>(this.sistemas)
+  getSistemas(): Observable<ISistemas[]>{
+    return this.http.get<ISistemas[]>(this.sistemas)
   }
 
-  getMinisterio(): Observable<Ministerio>{
+  getMinisterio(): Observable<IMinisterio>{
      const ministerio = environment.ministerio
-     return this.http.get<Ministerio>(ministerio)
+     return this.http.get<IMinisterio>(ministerio)
   }
 
   setIdSistema(value : any){

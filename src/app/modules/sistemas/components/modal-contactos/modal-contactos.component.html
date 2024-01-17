@@ -1,12 +1,12 @@
 <div [ngClass]="{'hidden': !modalSrv.isOpenModal()}" (click)="closeModal()"
     class="fixed z-50 inset-0 w-full overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-50 flex items-end">
     <!-- Modal content -->
-    <div class="w-full mx-auto bg-white rounded-lg shadow p-6 space-y-6 overflow-y-auto max-h-[400px]">
+    <div class="card-contactos w-full mx-auto bg-white rounded-lg shadow p-2 space-y-6 overflow-y-auto">
         <!-- Modal header -->
         <div class="flex items-start justify-between border-b rounded-t">
-            <h3 class="text-xl font-semibold text-gray-500">
+            <h2 class="ml-8">
                 Contactos
-            </h3>
+            </h2>
             <button type="button" (click)="closeModal()"
                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -20,17 +20,17 @@
         <!-- Modal body -->
         <div class="p-6 space-y-6 overflow-y-auto">
             <!-- si el viewport es mayor a 768 width se establece esta lista -->
-            <div class="flex md:flex-row flex-col justify-between">
-                <div *ngFor="let contacto of contactos" class=" mx-2 my-4 " >
+            <div class="flex flex-wrap md:justify-between justify-center container mx-auto ">
+                <div *ngFor="let contacto of contactos" class="mx-2 my-6">
                     <div *ngIf="contacto.titulo">
-                        <h3 class="text-sky-700 flex title md:text-center font-semibold">{{contacto.titulo | uppercase}} {{contacto.subtitulo}}</h3>
+                        <h3 class="text-sky-700 flex title font-semibold md:text-lg text-sm ">{{contacto.titulo | uppercase}} {{contacto.subtitulo}}</h3>
                         <hr class="border-2 bg-slate-300">
                         <div class="my-1" *ngIf="contacto.direccion">
-                            <p><b>{{contacto.direccion}}</b>, {{contacto.ubicacion}}</p>
+                            <p class="md:text-lg text-sm"><b>{{contacto.direccion}}</b>, {{contacto.ubicacion}}</p>
                         </div>
                         <div *ngIf="contacto.telefonos" class="my-1">
                             <span *ngFor="let telefonos of contacto.telefonos.numeros">
-                                <p class="flex flex-row" *ngIf="telefonos">
+                                <p class="flex flex-row md:text-lg text-sm" *ngIf="telefonos">
                                     <svg class="telephone mr-1" xmlns="http://www.w3.org/2000/svg" height="24"
                                         viewBox="0 -960 960 960" width="24">
                                         <path
@@ -41,7 +41,7 @@
                             </span>
                         </div>
                         <div *ngIf="contacto.mail">
-                            <p class="flex flex-row contactos">
+                            <p class="flex flex-row contactos md:text-lg text-sm">
                                 <svg class="md:mr-1" xmlns="http://www.w3.org/2000/svg" height="24"
                                     viewBox="0 -960 960 960" width="24">
                                     <path

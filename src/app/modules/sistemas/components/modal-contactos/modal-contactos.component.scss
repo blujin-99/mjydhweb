@@ -12,3 +12,12 @@
     fill:#018634;
 }
 
+.card-contactos {
+    max-height: 400px;
+    animation: card 0.3s ease-out;
+}
+
+@keyframes card {
+    from {max-height: 0px;}
+    to {max-height: 400px;}
+}
