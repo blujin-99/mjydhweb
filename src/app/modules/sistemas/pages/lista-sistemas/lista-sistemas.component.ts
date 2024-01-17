@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SistemaService } from 'src/app/modules/service/sistema.service';
 import { ModalService } from 'src/app/modules/service/modal.service';
-import { SISTEMAS } from 'src/app/core/interfaces/sistemas.interface';
+import { ISistemas} from 'src/app/core/interfaces/sistemas.interface';
 
 @Component({
   selector: 'app-lista-sistemas',
@@ -12,11 +12,10 @@ export class ListaSistemasComponent implements OnInit{
 
    constructor(
       private sistemaSrv : SistemaService,
-      private ModalSrv : ModalService
+      private ModalSrv : ModalService,
       ){}
 
-   sistemas : any
-   
+   sistemas : ISistemas[] = []
 
    ngOnInit(): void {
     this.sistemaSrv.getSistemas().subscribe(data => {

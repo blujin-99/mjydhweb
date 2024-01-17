@@ -1,4 +1,4 @@
-export interface Ministerio{
+export interface IMinisterio{
         Ministerio: string,
         MinisterioCorto:  string,
         Secretaria: string,
