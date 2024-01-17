@@ -5,26 +5,32 @@
 @layer components {
     h1 {
         @apply mb-2 text-3xl font-medium tracking-tight text-[var(--h1-color)];
+        font-size: 1.75rem; 
     }
 
     h2 {
         @apply mb-2 text-2xl font-medium tracking-tight text-[var(--h2-color)];
+        font-size: 1.5rem;
     }
 
     h3 {
         @apply mb-2 text-xl font-medium tracking-tight text-[var(--h3-color)];
+        font-size: 1rem; 
     }
 
     h4 {
         @apply mb-2 text-lg font-medium tracking-tight text-[var(--h4-color)];
+        font-size: 0.75rem;
     }
 
     h5 {
         @apply mb-2 text-base font-medium tracking-tight text-[var(--h5-color)];
+        font-size: 0.5rem; 
     }
 
     h6 {
         @apply mb-2 text-sm font-medium tracking-tight text-[var(--h6-color)];
+        font-size: 1rem;
     }
 
     label {
